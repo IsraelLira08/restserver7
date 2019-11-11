@@ -15,9 +15,10 @@ app.use(require('./routes/index'));
 
 
 //Conexion a base de datos
-mongoose.connect('mongodb://localhost:27017/cafeteria', {
+mongoose.connect(process.env.URLDB, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     },
     (err, resp) => {
         if (err) throw err;
